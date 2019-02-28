@@ -17,49 +17,56 @@
   <gazebo reference="link1">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <material>Gazebo/Grey</material>
+    <!-- https://bitbucket.org/osrf/gazebo/src/default/media/materials/scripts/gazebo.material?fileviewer=file-view-default-->
+    <material>Gazebo/DarkGrey</material>
   </gazebo>
 
   <!-- Link2 -->
   <gazebo reference="link2">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <material>Gazebo/Grey</material>
+    <material>Gazebo/DarkGrey</material>
   </gazebo>
 
   <!-- Link3 -->
   <gazebo reference="link3">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <material>Gazebo/Grey</material>
+    <material>Gazebo/DarkGrey</material>
   </gazebo>
 
   <!-- Link4 -->
   <gazebo reference="link4">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <material>Gazebo/Grey</material>
+    <material>Gazebo/DarkGrey</material>
   </gazebo>
 
   <!-- Link5 -->
   <gazebo reference="link5">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <material>Gazebo/Grey</material>
+    <material>Gazebo/DarkGrey</material>
   </gazebo>
 
   <!-- Link6 -->
   <gazebo reference="link6">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <material>Gazebo/Grey</material>
+    <visual>
+      <transparency>1.0</transparency>
+      <material>Gazebo/Grey</material>
+    </visual>
   </gazebo>
 
   <!-- End Link -->
   <gazebo reference="end_link">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <material>Gazebo/Grey</material>
+    <visual>
+      <transparency>1.0</transparency>
+      <material>Gazebo/Grey</material>
+    </visual>
   </gazebo>
 
 </robot>
