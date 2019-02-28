@@ -244,15 +244,18 @@ void BaseModule::jointPoseMsgCallback(const manipulator_h_base_module_msgs::Join
 
   robotis_->joint_pose_msg_ = *msg;
 
-  if (robotis_->is_moving_ == false)
-  {
-    tra_gene_thread_ = new boost::thread(boost::bind(&BaseModule::generateJointTrajProcess, this));
-    delete tra_gene_thread_;
-  }
-  else
-  {
-    ROS_INFO("previous task is alive");
-  }
+  // jgkim_mod
+  // if (robotis_->is_moving_ == false)
+  // {
+  //   tra_gene_thread_ = new boost::thread(boost::bind(&BaseModule::generateJointTrajProcess, this));
+  //   delete tra_gene_thread_;
+  // }
+  // else
+  // {
+  //   ROS_INFO("previous task is alive");
+  // }
+  tra_gene_thread_ = new boost::thread(boost::bind(&BaseModule::generateJointTrajProcess, this));
+  delete tra_gene_thread_;
 
   return;
 }
@@ -287,7 +290,7 @@ void BaseModule::generateJointTrajProcess()
 
   /* set movement time */
   double tol = 35 * DEGREE2RADIAN; // rad per sec
-  double mov_time = 2.0;
+  double mov_time = 2.0; 
 
   double max_diff, abs_diff;
   max_diff = 0.0;
@@ -320,6 +323,8 @@ void BaseModule::generateJointTrajProcess()
 
   if (robotis_->mov_time_ < mov_time)
     robotis_->mov_time_ = mov_time;
+  
+  robotis_->mov_time_ = 1.01/30; // jgkim_mod (30Hz)
 
   robotis_->all_time_steps_ = int(robotis_->mov_time_ / robotis_->smp_time_) + 1;
 
