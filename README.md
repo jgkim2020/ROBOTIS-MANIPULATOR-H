@@ -1,6 +1,57 @@
 # ROBOTIS MANIPULATOR-H
 ![](http://emanual.robotis.com/assets/images/platform/manipulator/manipulator_product.gif)
 
+## Quick tutorial on gazebo (2019.02.28)
+- Prerequisite (your mileage may vary)
+
+  sudo apt-get install ros-kinetic-qt-build
+  
+  sudo apt-get install ros-kinetic-dynamixel-sdk
+
+- Following packages must be built with catkin_make (~/catkin_ws/src/)
+  
+  ROBOTIS-MANIPULATOR-H
+  
+  ROBOTIS-Framework
+  
+  ROBOTIS-Framework-msgs
+  
+  ROBOTIS-Math
+  
+  DynamixelSDK
+
+- Simple example from official ROBOTIS docs
+
+  https://github.com/ROBOTIS-GIT/emanual/blob/master/docs/en/platform/manipulator_h/manipulator_ros.md#overview-6
+
+  https://github.com/ROBOTIS-GIT/ROBOTIS-MANIPULATOR-H
+
+- Step-by-step procedure
+  
+  **roscore**
+  
+  **roslaunch manipulator_h_gazebo manipulator_h_gazebo.launch**
+  
+    *Press the play button in gazebo to start clock*
+  
+  **roslaunch manipulator_h_manager manipulator_h_manager_gazebo.launch**
+	  
+    *Can’t control the robot without this node*
+  
+  **rosrun manipulator_h_gui manipulator_h_gui**
+    
+    *Press ‘Set Mode’ to enable robot controls*
+  
+- Topics of interest
+
+  /robotis/base/set_mode_msg
+  
+	/robotis/base/joint_pose_msg
+
+- Misc.
+
+  Some issues with publishing topics when using python (C++ is preferred)
+
 ## ROS Packages for ROBOTIS MANIPULATOR-H 
 
 |Version|Kinetic + Ubuntu Xenial|Melodic + Ubuntu Bionic|
